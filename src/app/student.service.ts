@@ -19,6 +19,9 @@ export class StudentService{
         this.students.forEach((value,index)=>{
             if(data.name===value.name && data.rollNumber===value.rollNumber){
                 this.students.splice(index,1);
+
+
+                
             }
         })
     }
