@@ -1,0 +1,63 @@
+
+<div class="container">
+    
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <h2>Template Form</h2>
+        <hr>
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
+          <div class="form-group">
+            <label for="name" push-left><span>*</span>Student Name:</label>
+            <input type="text" name="name" id="name" class="form-control" ngModel #name="ngModel" required>
+            <span class="help-block" *ngIf="!name.valid && name.touched">Pleas enter valid name!</span>
+          </div>
+          
+          <div class="form group">
+            <label for="rollNumber"><span>*</span>Roll Number:</label>
+            <input type="number" name="rollNumber" id="rollNumber" class="form-control" ngModel #rollNumbre="ngModel" required>
+            <span class="help-block" *ngIf="!rollNumbre.valid && rollNumbre.touched">Pleas enter valid roll number!</span>
+          </div>
+          <div class="form-group">
+            <label for="email"><span>*</span>Email:</label>
+            <input type="email" name="email" id="email" class="form-control" ngModel #email="ngModel" required>
+            <span class="help-block" *ngIf="!email.valid && email.touched">Please enter valid email address!</span>
+          </div>
+          <div class="form-group">
+            <label><span>*</span>Gender:</label>
+            <div class="radio" *ngFor="let gender of genders">
+            
+              <label>
+                  <input type="radio" name="gender" id="gender" [value]="gender" ngModel [ngModel]="'male'" required>{{gender}}
+              </label>
+          </div>
+          </div>
+          
+          <div class="form-group">
+              <label for="year"><span>*</span>Select Batch:</label>
+              <select name="batch" id="batch" class="form-control" ngModel #batch="ngModel" required>
+                  <option [value]="year" *ngFor="let year of years">{{year}}</option>
+              </select>
+              <span class="help-block" *ngIf="!batch.valid && batch.touched">Please select valid batch!</span>
+              
+          </div>
+          <div class="form-group">
+            <label for="year"><span>*</span>Select Course:</label>
+            <select name="course" id="course" class="form-control" ngModel #course="ngModel" required>
+                <option [value]="cours" *ngFor="let cours of courses" >{{cours}}</option>
+            </select>
+            <span class="help-group" *ngIf="!course.valid && course.touched">Please select valid year!</span>
+        </div>
+          <div class="form-group">
+              <label for="date"><span>*</span>Date Of Birth</label>
+              <input type="date" name="dateOfBirth" id="date" class="form-control" ngModel #date="ngModel" required>
+              <span class="help-block" *ngIf="!date.valid && date.touched">Pleas select valid date of birth!</span>
+          </div>
+        
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary "  [disabled]="!form.valid"><i class="glyphicon glyphicon-save"></i> Submit</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>

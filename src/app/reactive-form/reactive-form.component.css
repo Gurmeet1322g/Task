@@ -1,0 +1,12 @@
+.container{
+    margin-bottom: 30px;
+}
+
+input.ng-invalid.ng-touched{
+    border:1px solid orangered;
+
+}
+
+span{
+    color: orangered;
+}

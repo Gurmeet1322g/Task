@@ -1,0 +1,55 @@
+<div class="container">
+  
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <h2>Reactive Form</h2><hr>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name" push-left><span>*</span>Student Name:</label>
+            <input type="text"  id="name" formControlName="name" class="form-control">
+            <span class="help-block" *ngIf="!form.get('name').valid && form.get('name').touched">Please enter valid name !</span>
+          </div>
+          <div class="form-group">
+            <label for="rollNumber"><span>*</span>Roll Number:</label>
+            <input type="number"  id="rollNumber" formControlName="rollNumber" class="form-control">
+            <span class="help-block" *ngIf="!form.get('rollNumber').valid && form.get('rollNumber').touched">Please enter valid roll number !</span>
+          </div>
+          <div class="form-group">
+            <label for="email"><span>*</span>Email:</label>
+            <input type="email" id="email" formControlName="email" class="form-control">
+            <span class="help-block" *ngIf="!form.get('email').valid && form.get('email').touched">Please enter valid email !</span>
+          </div>
+           <div class="form-group">
+             <label for="gender"><span>*</span>Gender</label>
+            <div class="radio" *ngFor="let gender of genders">
+              <label>
+                  <input type="radio"  id="gender" formControlName="gender" [value]="gender">{{gender}}
+              </label>
+          </div>
+           </div>
+         
+          <div class="form-group">
+              <label for="year"><span>*</span>Select Batch:</label>
+              <select  id="batch" formControlName="batch" class="form-control">
+                  <option [value]="year" *ngFor="let year of years">{{year}}</option>
+              </select>
+              
+          </div>
+          <div class="form-group">
+            <label for="year"><span>*</span>Select Course:</label>
+            <select  id="course" formControlName="course" class="form-control">
+                <option [value]="cours" *ngFor="let cours of courses">{{cours}}</option>
+            </select>
+        </div>
+          <div class="form-group">
+              <label for="date"><span>*</span>Date Of Birth</label>
+              <input type="date"  id="date" formControlName="dateOfBirth" class="form-control">
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary " [disabled]="!form.valid"><i class="glyphicon glyphicon-save"></i>  Submit</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>

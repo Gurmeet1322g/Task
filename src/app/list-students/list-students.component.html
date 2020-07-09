@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="text-center">
+        <h1><span class="glyphicon glyphicon-user" style="color:slateblue;"></span> Students</h1>
+    </div>
+    
+             <hr>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Roll No.</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Batch</th>
+          <th>Course</th>
+          <th>Date Of Birth</th>
+          <th>Gender</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students" (click)="selectStudent(student)">
+          <td>{{student.rollNumber}}</td>
+          <td>{{student.name}}</td>
+          <td>{{student.email}}</td>
+          <td>{{student.batch}}</td>
+          <td>{{student.course}}</td>
+          <td>{{student.dateOfBirth}}</td>
+          <td>{{student.gender}}</td>
+          <td><button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
